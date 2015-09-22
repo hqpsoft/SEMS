@@ -11,10 +11,12 @@ namespace SEMS.WebSite.Controllers
     {
         #region 获取或设置 身份认证业务对象
         private ICompanySvc _companySvc { get; set; }
-
-        public CompanyController(ICompanySvc companySvc)
+        private IDepartmentSvc _departmentSvc { get; set; }
+        
+        public CompanyController(ICompanySvc companySvc, IDepartmentSvc departmentSvc)
         {
             _companySvc = companySvc;
+            _departmentSvc = departmentSvc;
         }
         #endregion
 
@@ -22,9 +24,11 @@ namespace SEMS.WebSite.Controllers
         // GET: Company
         public ActionResult Index()
         {
-            _companySvc.AddCompany();
+            _companySvc.CreatCompany();
+           // _departmentSvc.CreatDepartment();
             return View();
         }
+
         public ActionResult Form()
         {
             return View();

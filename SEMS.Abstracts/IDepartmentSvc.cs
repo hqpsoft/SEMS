@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace SEMS.Abstracts
 {
     /// <summary>
-    /// 公司管理业务契约
+    /// 部门管理业务契约
     /// </summary>
-    public interface ICompanySvc
+    public interface IDepartmentSvc
     {
         /// <summary>
-        /// 新增公司
+        /// 新增部门
         /// </summary>
-        void CreatCompany();
+        void CreatDepartment();
     }
 }

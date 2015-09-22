@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompanySvc.cs" />
+    <Compile Include="DepartmentSvc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +61,10 @@
     <ProjectReference Include="..\SEMS.DataAccess\SEMS.DataAccess.csproj">
       <Project>{c337c77f-f4c7-4a40-aa56-4c5ee0fb9c28}</Project>
       <Name>SEMS.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEMS.Infrastructure\SEMS.Infrastructure.csproj">
+      <Project>{5c95f4b8-7f0a-4f1d-8376-edc395758187}</Project>
+      <Name>SEMS.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

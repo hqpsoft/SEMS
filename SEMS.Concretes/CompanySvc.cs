@@ -1,6 +1,7 @@
 ﻿using Mehdime.Entity;
 using SEMS.Abstracts;
 using SEMS.DataAccess.Model;
+using SEMS.Infrastructure.Exception;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,11 @@ namespace SEMS.Concretes
         }
         #endregion
 
-        public void AddCompany()
+        public void CreatCompany()
         {
             using (var dbScope = _dbScopeFactory.CreateReadOnly())
             {
+                throw new TipInfoException("测试异常");
                 var db = dbScope.DbContexts.Get<SEMSDbContext>();
                 var data = db.Companies.ToList();
                
