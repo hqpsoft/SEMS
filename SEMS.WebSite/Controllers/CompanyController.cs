@@ -1,4 +1,6 @@
 ﻿using SEMS.Abstracts;
+using SEMS.WebSite.App_Start;
+using SEMS.WebSite.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,13 +21,15 @@ namespace SEMS.WebSite.Controllers
             _departmentSvc = departmentSvc;
         }
         #endregion
-
-
         // GET: Company
         public ActionResult Index()
         {
+           
             _companySvc.CreatCompany();
-           // _departmentSvc.CreatDepartment();
+            // _departmentSvc.CreatDepartment();
+
+            ModelState.AddModelError("id", "不允许为空");
+           
             return View();
         }
 

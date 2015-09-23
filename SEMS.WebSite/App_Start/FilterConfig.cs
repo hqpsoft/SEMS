@@ -1,4 +1,5 @@
 ﻿using SEMS.Infrastructure.Tools;
+using SEMS.WebSite.Filters;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,7 +11,7 @@ namespace SEMS.WebSite
         {
             filters.Add(new HandleErrorAttribute());
             // 异常统一结果返回
-            filters.Add(new UnifyExceptionFilter());
+            filters.Add(new ExceptionFilter());
         }
     }
 }
