@@ -26,7 +26,7 @@ namespace SEMS.Concretes
         {
             using (var dbScope = _dbScopeFactory.CreateReadOnly())
             {
-                throw new Exception("测试异常");
+                throw new TipInfoException("测试异常");
                 var db = dbScope.DbContexts.Get<SEMSDbContext>();
                 var data = db.Companies.ToList();
                

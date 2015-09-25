@@ -1,41 +1,35 @@
-[assembly: WebActivator.PostApplicationStartMethod(typeof(SEMS.WebSite.App_Start.SimpleInjectorInitializer), "Initialize")]
+[assembly: WebActivator.PostApplicationStartMethod(typeof(SEMS.WebSite.App_Start.SimpleInjectorWebApiInitializer), "Initialize")]
 
 namespace SEMS.WebSite.App_Start
 {
-    using System.Reflection;
-    using System.Web.Mvc;
-
+    using System.Web.Http;
     using SimpleInjector;
-    using SimpleInjector.Extensions;
-    using SimpleInjector.Integration.Web;
-    using SimpleInjector.Integration.Web.Mvc;
+    using SimpleInjector.Integration.WebApi;
     using Mehdime.Entity;
-    using Abstracts;
-    using System.Linq;
     using Concretes;
+    using System.Linq;
 
-    public static class SimpleInjectorInitializer
+    public static class SimpleInjectorWebApiInitializer
     {
-        /// <summary>Initialize the container and register it as MVC3 Dependency Resolver.</summary>
+        /// <summary>Initialize the container and register it as Web API Dependency Resolver.</summary>
         public static void Initialize()
         {
             var container = new Container();
-            container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
+            container.Options.DefaultScopedLifestyle = new WebApiRequestLifestyle();
             
             InitializeContainer(container);
 
-            container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
+            container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
+       
+            container.Verify();
             
-             container.Verify();
-            
-            DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
+            GlobalConfiguration.Configuration.DependencyResolver =
+                new SimpleInjectorWebApiDependencyResolver(container);
         }
      
         private static void InitializeContainer(Container container)
         {
             container.Register<IDbContextScopeFactory>(() => new DbContextScopeFactory(), Lifestyle.Scoped);//×¢²áEF
-
-            // container.Register<ICompanySvc, CompanySvc>(Lifestyle.Scoped);
 
             var serviceAssembly = typeof(CompanySvc).Assembly;
 

@@ -3,6 +3,35 @@
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script type="text/javascript">
+    var companyVM = {
+        CompanyName: "",
+    };
+    //创建一个控制器CompanyController
+    sems.controller("CompanyController", function ($scope, $http) {
+        $scope.company = companyVM;//给变量赋值
+
+        //声明表单提交事件
+        $scope.SubmitCompany = function (company) {
+            $http.post('/api/CompanyAPI', company).
+              then(function (response) {
+                  bootbox.alert("提交成功");
+              }, function (response) {
+                  if (response.data.ErrorInfo == undefined) {
+                      var a = response.data.ModelState[0];
+                      var b = response.data.ModelState[0][0];
+                      bootbox.alert(response.data.ModelState[0][0]);
+                  } else {
+                      bootbox.alert(response.data.Message);
+                  }
+            });
+        };
+    });
+    
+   
+</script>
+
+
 <!-- BEGIN SAMPLE FORM PORTLET-->
 <div class="portlet light">
     <div class="portlet-title">
@@ -11,9 +40,6 @@
             <span class="caption-subject bold uppercase"> Horizontal Form</span>
         </div>
         <div class="actions">
-            <a class="btn green" href="javascript: history.go(-1);">
-               Return
-            </a>
             <a class="btn btn-circle btn-icon-only blue" href="javascript:;">
                 <i class="icon-cloud-upload"></i>
             </a>
@@ -27,14 +53,14 @@
             </a>
         </div>
     </div>
-    <div class="portlet-body form">
+    <div class="portlet-body form" ng-controller="CompanyController">
         <form role="form" class="form-horizontal">
-            <div class="form-body">
+            <div class="form-body" >
                 <div class="form-group form-md-line-input">
-                    <label class="col-md-2 control-label" for="form_control_1">Regular input</label>
+                    <label class="col-md-2 control-label" for="form_control_1">公司名称</label>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" id="form_control_1" placeholder="Enter your name">
-                        <div class="form-control-focus">
+                        <input type="text" class="form-control" id="form_control_1"  ng-model="company.CompanyName"  placeholder="Enter your name" value="{{model.CompanyName}}">
+                        <div class="form-control-focus" >
                         </div>
                     </div>
                 </div>
@@ -139,14 +165,13 @@
             <div class="form-actions">
                 <div class="row">
                     <div class="col-md-offset-2 col-md-10">
-                        <button type="button" class="btn green" onclick="javascript: history.go(-1);">Return</button>
-                        <button type="button" class="btn default">Cancel</button>
-                        <button type="button" class="btn blue">Submit</button>
+                        <button type="button" class="btn default" onclick="javascript: history.go(-1);">取消</button>
+                        <button type="button" class="btn blue" ng-click="SubmitCompany(company)">提交</button>
                     </div>
                 </div>
             </div>
+           
         </form>
     </div>
 </div>
 <!-- END SAMPLE FORM PORTLET-->
-
