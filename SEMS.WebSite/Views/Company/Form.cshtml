@@ -17,14 +17,30 @@
               then(function (response) {
                   bootbox.alert("提交成功");
               }, function (response) {
+                  var msgInfo = new Array();
                   if (response.data.ErrorInfo == undefined) {
-                      var a = response.data.ModelState[0];
-                      var b = response.data.ModelState[0][0];
-                      bootbox.alert(response.data.ModelState[0][0]);
+                      angular.forEach(response.data.ModelState, function (data) {
+                          msgInfo.push(data);
+                      });
                   } else {
-                      bootbox.alert(response.data.Message);
+                      msgInfo.push(response.data.Message);
+                  }
+
+                  for (var i = 0; i < msgInfo.length; i++) {
+                      Metronic.alert({
+                          container: "#bootstrap_alerts_demo",
+                          message: msgInfo[i],
+                          icon: "warning",
+                          type: "warning",
+                          reset: false,
+                      });
                   }
             });
+
+           
+            
+           
+
         };
     });
     
@@ -54,119 +70,34 @@
         </div>
     </div>
     <div class="portlet-body form" ng-controller="CompanyController">
+        <div id="bootstrap_alerts_demo"></div>
         <form role="form" class="form-horizontal">
             <div class="form-body" >
                 <div class="form-group form-md-line-input">
                     <label class="col-md-2 control-label" for="form_control_1">公司名称</label>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" id="form_control_1"  ng-model="company.CompanyName"  placeholder="Enter your name" value="{{model.CompanyName}}">
+                        <input type="text" class="form-control" id="form_control_1"  ng-model="company.CompanyName"  placeholder="请输入公司名称" value="{{model.CompanyName}}">
                         <div class="form-control-focus" >
                         </div>
+                        <span class="help-block">公司名称是必填</span>
                     </div>
                 </div>
                 <div class="form-group form-md-line-input">
-                    <label class="col-md-2 control-label" for="form_control_1">Input with hint</label>
+                    <label class="col-md-2 control-label" for="form_control_1">备注</label>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" id="form_control_1" placeholder="Enter your email">
+                        <textarea class="form-control" rows="3"></textarea>
                         <div class="form-control-focus">
                         </div>
-                        <span class="help-block">Some help goes here...</span>
+                       
                     </div>
                 </div>
-                <div class="form-group form-md-line-input has-success">
-                    <label class="col-md-2 control-label" for="form_control_1">Success Input</label>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" id="form_control_1" placeholder="Success state">
-                        <div class="form-control-focus">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group form-md-line-input has-warning">
-                    <label class="col-md-2 control-label" for="form_control_1">Warning Input</label>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" id="form_control_1" placeholder="Warning state">
-                        <div class="form-control-focus">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group form-md-line-input has-error">
-                    <label class="col-md-2 control-label" for="form_control_1">Error State</label>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" id="form_control_1" placeholder="Error state">
-                        <div class="form-control-focus">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group form-md-line-input">
-                    <label class="col-md-2 control-label" for="form_control_1">Dropdown Input</label>
-                    <div class="col-md-10">
-                        <select class="form-control" id="form_control_1">
-                            <option value=""></option>
-                            <option value="">Option 1</option>
-                            <option value="">Option 2</option>
-                            <option value="">Option 3</option>
-                            <option value="">Option 4</option>
-                        </select>
-                        <div class="form-control-focus">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group form-md-line-input has-success">
-                    <label class="col-md-2 control-label" for="form_control_1">Textarea</label>
-                    <div class="col-md-10">
-                        <textarea class="form-control" rows="3" placeholder="Enter more text"></textarea>
-                        <div class="form-control-focus">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group form-md-line-input">
-                    <label class="col-md-2 control-label" for="form_control_1">Disabled</label>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" disabled id="form_control_1" placeholder="Placeholder...">
-                        <div class="form-control-focus">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group form-md-line-input">
-                    <label class="col-md-2 control-label" for="form_control_1">Readonly</label>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" readonly value="Some value" id="form_control_1" placeholder="Placeholder...">
-                        <div class="form-control-focus">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group form-md-line-input">
-                    <label class="col-md-2 control-label" for="form_control_1">Readonly</label>
-                    <div class="col-md-10">
-                        <div class="form-control form-control-static">
-                            email@example.com
-                        </div>
-                        <div class="form-control-focus">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group form-md-line-input">
-                    <label class="col-md-2 control-label" for="form_control_1">Small</label>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control input-sm" id="form_control_1" placeholder=".input-sm">
-                        <div class="form-control-focus">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group form-md-line-input">
-                    <label class="col-md-2 control-label" for="form_control_1">Large</label>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control input-lg" id="form_control_1" placeholder=".input-lg">
-                        <div class="form-control-focus">
-                        </div>
-                    </div>
-                </div>
+                
             </div>
             <div class="form-actions">
                 <div class="row">
                     <div class="col-md-offset-2 col-md-10">
-                        <button type="button" class="btn default" onclick="javascript: history.go(-1);">取消</button>
-                        <button type="button" class="btn blue" ng-click="SubmitCompany(company)">提交</button>
+                        <button type="button" class="btn default btn-lg" onclick="javascript: history.go(-1);">取消</button>
+                        <button type="button" class="btn blue btn-lg" ng-click="SubmitCompany(company)">提交</button>
                     </div>
                 </div>
             </div>

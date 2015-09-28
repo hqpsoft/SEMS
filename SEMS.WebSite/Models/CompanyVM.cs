@@ -20,5 +20,12 @@ namespace SEMS.WebSite.Models
         [Required(ErrorMessage = "公司名称不能为空")]
         [MaxLength(50)]
         public string CompanyName { get; set; }
+
+        /// <summary>
+        /// 备注
+        /// </summary>
+        [Required(ErrorMessage = "备注不能为空")]
+        [MaxLength(200)]
+        public string Remark { get; set; }
     }
 }
