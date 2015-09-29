@@ -3,70 +3,18 @@
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<script type="text/javascript">
-    var companyVM = {
-        CompanyName: "",
-    };
-    //创建一个控制器CompanyController
-    sems.controller("CompanyController", function ($scope, $http) {
-        $scope.company = companyVM;//给变量赋值
-
-        //声明表单提交事件
-        $scope.SubmitCompany = function (company) {
-            $http.post('/api/CompanyAPI', company).
-              then(function (response) {
-                  bootbox.alert("提交成功");
-              }, function (response) {
-                  var msgInfo = new Array();
-                  if (response.data.ErrorInfo == undefined) {
-                      angular.forEach(response.data.ModelState, function (data) {
-                          msgInfo.push(data);
-                      });
-                  } else {
-                      msgInfo.push(response.data.Message);
-                  }
-
-                  for (var i = 0; i < msgInfo.length; i++) {
-                      Metronic.alert({
-                          container: "#bootstrap_alerts_demo",
-                          message: msgInfo[i],
-                          icon: "warning",
-                          type: "warning",
-                          reset: false,
-                      });
-                  }
-            });
-
-           
-            
-           
-
-        };
-    });
-    
-   
-</script>
 
 
+<script src="~/AngularJS/ServiceJS/CompanyJS.js"></script>
 <!-- BEGIN SAMPLE FORM PORTLET-->
 <div class="portlet light">
     <div class="portlet-title">
         <div class="caption font-green-haze">
             <i class="icon-settings font-green-haze"></i>
-            <span class="caption-subject bold uppercase"> Horizontal Form</span>
+            <span class="caption-subject bold uppercase">公司管理</span>
         </div>
         <div class="actions">
-            <a class="btn btn-circle btn-icon-only blue" href="javascript:;">
-                <i class="icon-cloud-upload"></i>
-            </a>
-            <a class="btn btn-circle btn-icon-only green" href="javascript:;">
-                <i class="icon-wrench"></i>
-            </a>
-            <a class="btn btn-circle btn-icon-only red" href="javascript:;">
-                <i class="icon-trash"></i>
-            </a>
-            <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title="">
-            </a>
+            <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title="全屏"></a>
         </div>
     </div>
     <div class="portlet-body form" ng-controller="CompanyController">
@@ -76,7 +24,7 @@
                 <div class="form-group form-md-line-input">
                     <label class="col-md-2 control-label" for="form_control_1">公司名称</label>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" id="form_control_1"  ng-model="company.CompanyName"  placeholder="请输入公司名称" value="{{model.CompanyName}}">
+                        <input type="text" class="form-control" id="form_control_1"  ng-model="company.CompanyName"   placeholder="请输入公司名称" >
                         <div class="form-control-focus" >
                         </div>
                         <span class="help-block">公司名称是必填</span>
@@ -85,7 +33,7 @@
                 <div class="form-group form-md-line-input">
                     <label class="col-md-2 control-label" for="form_control_1">备注</label>
                     <div class="col-md-10">
-                        <textarea class="form-control" rows="3"></textarea>
+                        <textarea class="form-control" rows="3" ng-model="company.Remark"></textarea>
                         <div class="form-control-focus">
                         </div>
                        

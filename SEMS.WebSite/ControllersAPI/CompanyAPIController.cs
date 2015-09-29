@@ -1,5 +1,6 @@
 ﻿using SEMS.Abstracts;
-using SEMS.WebSite.Models;
+using SEMS.DataAccess.Dto;
+using SEMS.DataAccess.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,31 +10,30 @@ using System.Web.Http;
 
 namespace SEMS.WebSite.ControllersAPI
 {
-    public class CompanyAPIController : ApiController
+    public class CompanyAPIController : BaseAPIController
     {
         #region 获取或设置 身份认证业务对象
         private ICompanySvc _companySvc { get; set; }
-        private IDepartmentSvc _departmentSvc { get; set; }
-
-        public CompanyAPIController(ICompanySvc companySvc, IDepartmentSvc departmentSvc)
+        public CompanyAPIController(ICompanySvc companySvc)
         {
             _companySvc = companySvc;
-            _departmentSvc = departmentSvc;
         }
         #endregion
 
-        public IHttpActionResult Get()
+        public IHttpActionResult Get(int id)
         {
             return Ok();
         }
-        public IHttpActionResult Post([FromBody] CompanyVM vm)
+
+        public IHttpActionResult Get([FromUri]CompanyQuery query)
         {
-           // _companySvc.CreatCompany();
-            //if (vm.Id != 222)
-            //{
-            //    ModelState.AddModelError("CompanyName", "公司名称不允许为空");
-            //    return BadRequest(ModelState);
-            //}
+            var result = _companySvc.GetCompanyPage(query);
+            return Ok(result);
+        }
+
+        public IHttpActionResult Post([FromBody] CompanyDto dto)
+        {
+            _companySvc.CreatCompany(dto);
             return Ok();
         }
     }

@@ -5,14 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SEMS.WebSite.Models
+namespace SEMS.DataAccess.Dto
 {
-    /// <summary>
-    /// 公司管理ViewModel
-    /// </summary>
-    public class CompanyVM
+    public class CompanyDto 
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         /// <summary>
         /// 公司名称
@@ -24,7 +21,6 @@ namespace SEMS.WebSite.Models
         /// <summary>
         /// 备注
         /// </summary>
-        [Required(ErrorMessage = "备注不能为空")]
         [MaxLength(200)]
         public string Remark { get; set; }
     }

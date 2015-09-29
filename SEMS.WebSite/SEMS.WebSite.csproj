@@ -161,7 +161,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SimpleInjectorWebApiInitializer.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="ControllersAPI\BaseAPIController.cs" />
     <Compile Include="ControllersAPI\CompanyAPIController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Filters\ModelStateEnsureValidFilterAttribute.cs" />
     <Compile Include="Filters\OverrideModelStateEnsureValidFilterAttribute.cs" />
     <Compile Include="Filters\UnifyExceptionFilter.cs" />
@@ -171,10 +173,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CompanyVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AngularJS\ServiceJS\CompanyJS.js" />
     <Content Include="AngularJS\Global.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -5743,6 +5745,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Metronic\assets\global\plugins\angularjs\plugins\angular-file-upload\uploads\" />
+    <Folder Include="Models\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -5760,6 +5764,10 @@
     <ProjectReference Include="..\SEMS.Concretes\SEMS.Concretes.csproj">
       <Project>{cd820b90-8186-4ec5-82c3-0de323db8bd5}</Project>
       <Name>SEMS.Concretes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEMS.DataAccess\SEMS.DataAccess.csproj">
+      <Project>{c337c77f-f4c7-4a40-aa56-4c5ee0fb9c28}</Project>
+      <Name>SEMS.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\SEMS.Infrastructure\SEMS.Infrastructure.csproj">
       <Project>{5c95f4b8-7f0a-4f1d-8376-edc395758187}</Project>
