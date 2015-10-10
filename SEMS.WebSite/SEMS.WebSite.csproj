@@ -52,6 +52,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Mehdime.Entity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Mehdime.Entity.1.0.0\lib\Mehdime.Entity.dll</HintPath>
       <Private>True</Private>
@@ -164,6 +168,8 @@
     <Compile Include="ControllersAPI\BaseAPIController.cs" />
     <Compile Include="ControllersAPI\CompanyAPIController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Filters\Logging\Log4NetLog.cs" />
+    <Compile Include="Filters\Logging\Log4NetLoggerAdapter.cs" />
     <Compile Include="Filters\ModelStateEnsureValidFilterAttribute.cs" />
     <Compile Include="Filters\OverrideModelStateEnsureValidFilterAttribute.cs" />
     <Compile Include="Filters\UnifyExceptionFilter.cs" />

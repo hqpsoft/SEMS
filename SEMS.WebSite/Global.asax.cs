@@ -1,4 +1,6 @@
-﻿using SEMS.WebSite.App_Start;
+﻿using SEMS.Infrastructure.Logging;
+using SEMS.WebSite.App_Start;
+using SEMS.WebSite.Filters.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +21,13 @@ namespace SEMS.WebSite
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            LoggingInitialize();
+        }
+        private static void LoggingInitialize()
+        {
+            Log4NetLoggerAdapter adapter = new Log4NetLoggerAdapter();
+            LogManager.AddLoggerAdapter(adapter);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using SEMS.Abstracts;
 using SEMS.DataAccess.Dto;
 using SEMS.DataAccess.Query;
+using SEMS.Infrastructure.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace SEMS.WebSite.ControllersAPI
         {
             _companySvc = companySvc;
         }
+        private static readonly ILogger _logger = LogManager.GetLogger(typeof(CompanyAPIController));
         #endregion
 
         public IHttpActionResult Get(int id)
