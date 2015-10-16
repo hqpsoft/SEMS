@@ -32,8 +32,7 @@ var Login = function() {
             },
 
             highlight: function(element) { // hightlight error inputs
-                $(element)
-                    .closest('.form-group').addClass('has-error'); // set error class to the control group
+                $(element).closest('.form-group').addClass('has-error'); // set error class to the control group
             },
 
             success: function(label) {
@@ -45,8 +44,9 @@ var Login = function() {
                 error.insertAfter(element.closest('.input-icon'));
             },
 
-            submitHandler: function(form) {
-                form.submit(); // form validation success, call ajax form submit
+            submitHandler: function (form) {
+               // SubmitLogin(login);
+               // form.submit(); // form validation success, call ajax form submit
             }
         });
 

@@ -31,8 +31,7 @@ var Login = function () {
 	            },
 
 	            highlight: function (element) { // hightlight error inputs
-	                $(element)
-	                    .closest('.form-group').addClass('has-error'); // set error class to the control group
+	                $(element).closest('.form-group').addClass('has-error'); // set error class to the control group
 	            },
 
 	            success: function (label) {

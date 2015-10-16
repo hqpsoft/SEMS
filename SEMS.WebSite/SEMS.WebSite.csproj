@@ -167,6 +167,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="ControllersAPI\BaseAPIController.cs" />
     <Compile Include="ControllersAPI\CompanyAPIController.cs" />
+    <Compile Include="ControllersAPI\LoginAPIController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Filters\Logging\Log4NetLog.cs" />
     <Compile Include="Filters\Logging\Log4NetLoggerAdapter.cs" />
@@ -184,6 +185,7 @@
   <ItemGroup>
     <Content Include="AngularJS\ServiceJS\CompanyJS.js" />
     <Content Include="AngularJS\Global.js" />
+    <Content Include="AngularJS\ServiceJS\LoginJS.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -5747,6 +5749,7 @@
     <Content Include="Views\Company\Form.cshtml" />
     <Content Include="Views\Company\Index.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

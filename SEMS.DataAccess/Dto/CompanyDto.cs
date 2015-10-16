@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace SEMS.DataAccess.Dto
 {
+    /// <summary>
+    /// 公司管理Dto
+    /// </summary>
     public class CompanyDto 
     {
         public Guid Id { get; set; }

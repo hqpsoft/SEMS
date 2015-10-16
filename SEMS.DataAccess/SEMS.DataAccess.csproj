@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dto\CompanyDto.cs" />
+    <Compile Include="Dto\LoginDto.cs" />
     <Compile Include="EmitMapper\EmitMapper.cs" />
     <Compile Include="Model\Company.cs">
       <DependentUpon>sems.db.reverse.tt</DependentUpon>

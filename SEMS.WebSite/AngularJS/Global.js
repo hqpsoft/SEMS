@@ -3,7 +3,7 @@
 */
 var sems;
 (function () {
-    sems = angular.module("SEMS", []);
+    sems = angular.module("SEMS", ['ngMessages']);
 })();
 
 //表单提交成功事件通用操作
