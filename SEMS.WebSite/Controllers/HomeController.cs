@@ -32,5 +32,8 @@ namespace SEMS.WebSite.Controllers
 
             return View();
         }
+        public void DemoForSubmit() { 
+            
+        }
     }
 }
