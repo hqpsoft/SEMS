@@ -12,7 +12,7 @@ namespace SEMS.DataAccess.Dto
     /// </summary>
     public class CompanyDto 
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// 公司名称

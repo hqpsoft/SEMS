@@ -66,6 +66,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- END LOGO -->
     <!-- BEGIN LOGIN -->
     <div class="content" ng-controller="LoginController">
+        <div id="bootstrap_alerts_demo"></div>
         <!-- BEGIN LOGIN FORM -->
         <form class="login-form" name="LoginForm" novalidate >
             @*<div class="form-title">
@@ -83,14 +84,17 @@ License: You must have a valid license purchased only from themeforest(the above
                 <label class="control-label visible-ie8 visible-ie9">Username</label>
                 <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" ng-model="login.username" required />
                
-                <div ng-messages="LoginForm.username.$error" ng-if="LoginForm.$submitted">
+                <div ng-messages="LoginForm.username.$error" >
                     <div ng-message="required">请输入用户名</div>
                 </div> 
             </div>
             <div class="form-group">
                 <label class="control-label visible-ie8 visible-ie9">Password</label>
                 <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" ng-model="login.password" required/>
-            </div>
+                <div ng-messages="LoginForm.password.$error">
+                    <div ng-message="required">请输入密码</div>
+                </div> 
+             </div>
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary btn-block uppercase"   ng-disabled="LoginForm.$invalid" ng-click="SubmitLogin(login)">Login</button>
             </div>
