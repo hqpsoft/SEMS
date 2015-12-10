@@ -11,6 +11,7 @@ using SEMS.DataAccess.Dto;
 using SEMS.DataAccess.Query;
 using SEMS.Infrastructure.Data;
 using EmitMapper;
+using SEMS.DataAccess.Organization.Model;
 
 namespace SEMS.Concretes
 {
@@ -31,8 +32,7 @@ namespace SEMS.Concretes
             try
             {
                 var entity = ObjectMapperManager.DefaultInstance.GetMapper<CompanyDto, Company>().Map(dto);
-                entity.Id = Guid.NewGuid();
-                entity.CreateBy = Guid.NewGuid();
+                entity.CreateBy = 0;
                 entity.CreateDate = DateTime.Now;
                 using (var dbScope = _dbScopeFactory.Create())
                 {

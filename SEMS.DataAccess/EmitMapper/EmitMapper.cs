@@ -2,6 +2,7 @@
 using EmitMapper.MappingConfiguration;
 using SEMS.DataAccess.Dto;
 using SEMS.DataAccess.Model;
+using SEMS.DataAccess.Organization.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +23,14 @@ namespace SEMS.DataAccess.EmitMapper
                 }
                 return x == y;
             }));
-
-           
+            ObjectMapperManager.DefaultInstance.GetMapper<Company, CompanyDto>(new DefaultMapConfig().MatchMembers((x, y) =>
+            {
+                if (x == "address" && y == "userAddress")
+                {
+                    return true;
+                }
+                return x == y;
+            }));
         }
     }
 }

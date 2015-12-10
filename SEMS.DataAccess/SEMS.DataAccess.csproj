@@ -60,49 +60,31 @@
     <Compile Include="Dto\CompanyDto.cs" />
     <Compile Include="Dto\LoginDto.cs" />
     <Compile Include="EmitMapper\EmitMapper.cs" />
-    <Compile Include="Model\Company.cs">
-      <DependentUpon>sems.db.reverse.tt</DependentUpon>
+    <Compile Include="FluentAPI\ComapnyMap.cs" />
+    <Compile Include="Migrations\201512091426121_firstmigration.cs" />
+    <Compile Include="Migrations\201512091426121_firstmigration.Designer.cs">
+      <DependentUpon>201512091426121_firstmigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\CompanyConfiguration.cs">
-      <DependentUpon>sems.db.reverse.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\sems.db.reverse.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>sems.db.reverse.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\FakeDbSet.cs">
-      <DependentUpon>sems.db.reverse.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\FakeSEMSDbContext.cs">
-      <DependentUpon>sems.db.reverse.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ISEMSDbContext.cs">
-      <DependentUpon>sems.db.reverse.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\SEMSDbContext.cs">
-      <DependentUpon>sems.db.reverse.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\Base.cs" />
+    <Compile Include="Model\Organization\Company.cs" />
+    <Compile Include="Model\SEMSDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\BaseQuery.cs" />
     <Compile Include="Query\CompanyQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Model\EF.Reverse.POCO.Core.ttinclude" />
-    <None Include="Model\EF.Reverse.POCO.ttinclude" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Model\sems.db.reverse.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>sems.db.reverse.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201512091426121_firstmigration.resx">
+      <DependentUpon>201512091426121_firstmigration.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
