@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SEMS.DataAccess.Organization.Model
 {
-    public class Company: Base
+    public class Company: BaseModel
     {
         ///<summary>
         /// 公司名称
