@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SEMS.DataAccess.Model
 {
-    public class Base
+    public class BaseModel
     {
         [Key]
         public int Id { get; set; }
