@@ -8,7 +8,7 @@ sems.service("CompapyService", function ($http) {
 
     //根据Id获取表单信息
     this.getById = function (id) {
-        return $http.get("/api/CompanyAPI/" + id + "");
+        return $http.get("/api/CompanyAPI/" + id + "/ById");
     };
 
     //新增
@@ -39,13 +39,13 @@ sems.controller("CompanyController", function ($scope, $http, CompapyService) {
             { field: 'Id', title: 'Id', align: 'center', width: 280 },
             { field: 'CompanyName', title: '公司名称', align: 'center' },
             { field: 'Remark', title: '备注', align: 'center' },
-            { title: '操作', align: 'center', formatter: function (value, row, index) {
+            { title: '操作', align: 'center', width: 200,formatter: function (value, row, index) {
                     return [
-                        '<a class="btn btn-primary editor" ng-click="edit(' + row.ServiceId + ')" title="编辑">',
+                        '<a class="btn btn-primary editor" ng-click="edit(' + row.Id + ')" title="编辑">',
                             '编辑',
                         '</a>',
 
-                        '<a class="btn btn-primary delete" ng-click="delete(' + row.ServiceId + ')" title="删除">',
+                        '<a class="btn btn-primary delete" ng-click="delete(' + row.Id + ')" title="删除">',
                             '删除',
                         '</a>'].join('');
                 }
@@ -62,33 +62,44 @@ sems.controller("CompanyController", function ($scope, $http, CompapyService) {
         idField: true,
         pageList: [10, 25, 50, 100],
         sidePagination: 'server',
-
     };
 
+    //编辑事件
     $scope.edit = function (id) {
-        alert(id);
-    }
-    $scope.delete = function (id) {
-        alert(id);
-    }
-
-    //表单修改
-    $scope.FormLoad = function (id) {
         CompapyService.getById(id).success(function (data) {
+            $scope.formTile = "公司编辑";
+            $scope.isShowForm = true;
             $scope.company = data;
         }).error(function (data) {
             formSubmitFailClick(data);
         });
-    };
+    }
 
-    //声明表单提交事件
-    $scope.SubmitCompany = function (company) {
-        CompapyService.post(company).success(function (data) {
+    //删除事件
+    $scope.delete = function (id) {
+        CompapyService.delete(id).success(function (data) {
             formSubmitSuccessClick();
         }).error(function (data) {
             formSubmitFailClick(data);
         });
+    }
 
+    //声明表单提交事件
+    $scope.SubmitCompany = function (company) {
+        if (typeof company.Id == "undefined") {
+            CompapyService.post(company).success(function (data) {
+                formSubmitSuccessClick();
+            }).error(function (data) {
+                formSubmitFailClick(data);
+            });
+        }
+        else {
+            CompapyService.put(company.Id,company).success(function (data) {
+                formSubmitSuccessClick();
+            }).error(function (data) {
+                formSubmitFailClick(data);
+            });
+        }
     };
 
     $scope.OpenForm = function () {

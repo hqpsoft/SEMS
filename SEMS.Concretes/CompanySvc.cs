@@ -12,6 +12,7 @@ using SEMS.DataAccess.Query;
 using SEMS.Infrastructure.Data;
 using EmitMapper;
 using SEMS.DataAccess.Organization.Model;
+using SEMS.DataAccess.Extensions;
 
 namespace SEMS.Concretes
 {
@@ -47,6 +48,61 @@ namespace SEMS.Concretes
             }
         }
 
+        public void DeleteCompany(int companyId)
+        {
+            try
+            {
+                using (var dbScope = _dbScopeFactory.Create())
+                {
+                    var db = dbScope.DbContexts.Get<SEMSDbContext>();
+                    Company entity = new Company() { Id = companyId };
+                    db.Companies.Attach(entity);
+                    db.Companies.Remove(entity);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new TipInfoException(ex.Message);
+            }
+        }
+
+        public void EditCompany(CompanyDto dto)
+        {
+            try
+            {
+                var entity = ObjectMapperManager.DefaultInstance.GetMapper<CompanyDto, Company>().Map(dto);
+                entity.ModifyBy = 0;
+                entity.ModifyDate = DateTime.Now;
+                using (var dbScope = _dbScopeFactory.Create())
+                {
+                    var db = dbScope.DbContexts.Get<SEMSDbContext>();
+                    db.Update(entity, r => new { r.CompanyName, r.ModifyBy, r.ModifyDate, r.Remark, r.ParentId });
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new TipInfoException(ex.Message);
+            }
+        }
+
+        public CompanyDto GetCompanyById(int companyId)
+        {
+            using (var dbScope = _dbScopeFactory.CreateReadOnly())
+            {
+                var db = dbScope.DbContexts.Get<SEMSDbContext>();
+                var data = db.Companies.Where(r => r.Id == companyId).Select(r => new CompanyDto()
+                {
+                    Id = r.Id,
+                    CompanyName = r.CompanyName,
+                    Remark = r.Remark
+                }).FirstOrDefault();
+
+                return data;
+            }
+        }
+
         public PageGridData<CompanyDto> GetCompanyPage(CompanyQuery query)
         {
             using (var dbScope = _dbScopeFactory.CreateReadOnly())
@@ -62,7 +118,7 @@ namespace SEMS.Concretes
                 {
                     data = data.Where(r => r.CompanyName.Contains(query.Search));
                 }
-                var result = data.OrderBy(r => r.CompanyName).Skip(query.Offset).Take(query.Limit).ToList();
+                var result = data.OrderBy(r => r.Id).Skip(query.Offset).Take(query.Limit).ToList();
                 var total = data.Count();
                 return new PageGridData<CompanyDto> { rows = result, total = total };
             }

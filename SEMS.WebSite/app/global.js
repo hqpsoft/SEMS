@@ -26,7 +26,7 @@ sems.directive('initTable', ['$compile', function ($compile) {
 //表单提交成功事件通用操作
 var formSubmitSuccessClick = function () {
     bootbox.alert("提交成功", function (data) {
-        window.location.href = document.referrer;//返回列表页,并刷新
+        location.reload();//刷新分页
     });
 }
 

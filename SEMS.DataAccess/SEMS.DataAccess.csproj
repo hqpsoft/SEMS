@@ -60,6 +60,7 @@
     <Compile Include="Dto\CompanyDto.cs" />
     <Compile Include="Dto\LoginDto.cs" />
     <Compile Include="EmitMapper\EmitMapper.cs" />
+    <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="FluentAPI\ComapnyMap.cs" />
     <Compile Include="Migrations\201512091426121_firstmigration.cs" />
     <Compile Include="Migrations\201512091426121_firstmigration.Designer.cs">
