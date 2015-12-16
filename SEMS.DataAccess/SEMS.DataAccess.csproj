@@ -67,7 +67,7 @@
       <DependentUpon>201512091426121_firstmigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\Base.cs" />
+    <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\Organization\Company.cs" />
     <Compile Include="Model\SEMSDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
