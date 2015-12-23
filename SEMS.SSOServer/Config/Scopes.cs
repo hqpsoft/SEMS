@@ -7,28 +7,23 @@ namespace SEMS.SSOServer.Config.Config
     {
         public static IEnumerable<Scope> Get()
         {
-            return new[]
+            var scopes = new List<Scope>
+            {
+                new Scope
                 {
-                    StandardScopes.OpenId,
-                    StandardScopes.Profile,
-                    StandardScopes.Email,
-                    StandardScopes.OfflineAccess,
-
-                    new Scope
+                    Enabled = true,
+                    Name = "roles",
+                    Type = ScopeType.Identity,
+                    Claims = new List<ScopeClaim>
                     {
-                        Name = "read",
-                        DisplayName = "Read data",
-                        Type = ScopeType.Resource,
-                        Emphasize = false,
-                    },
-                    new Scope
-                    {
-                        Name = "write",
-                        DisplayName = "Write data",
-                        Type = ScopeType.Resource,
-                        Emphasize = true,
+                        new ScopeClaim("role")
                     }
-                };
+                }
+            };
+
+            scopes.AddRange(StandardScopes.All);
+
+            return scopes;
         }
     }
 }

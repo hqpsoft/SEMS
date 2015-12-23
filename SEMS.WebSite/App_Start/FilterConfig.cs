@@ -11,6 +11,8 @@ namespace SEMS.WebSite
             filters.Add(new HandleErrorAttribute());
             // 异常统一结果返回
             filters.Add(new ExceptionFilter());
+
+            filters.Add(new AuthorizeAttribute());
         }
     }
 }

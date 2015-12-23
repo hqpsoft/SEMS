@@ -33,17 +33,16 @@ namespace SEMS.SSOServer
             app.Map("/identity", coreApp =>
             {
                 var factory = new IdentityServerServiceFactory()
-                    .UseInMemoryUsers(Users.Get())
                     .UseInMemoryClients(Clients.Get())
                     .UseInMemoryScopes(Scopes.Get());
 
                 factory.ViewService = new Registration<IViewService>(typeof(ViewService));
-                //factory.UserService = new Registration<IUserService, UserService>();
+                factory.UserService = new Registration<IUserService, UserService>();
               
 
                 var options = new IdentityServerOptions
                 {
-                    SiteName = "SEMS",
+                    SiteName = "SEMS-SSO",
                     RequireSsl = false,
                     SigningCertificate = Certificate.Get(),
                     Factory = factory,
@@ -51,6 +50,7 @@ namespace SEMS.SSOServer
                     {
                         EnablePostSignOutAutoRedirect = true,
                         EnableSignOutPrompt = false,
+                        InvalidSignInRedirectUrl = _ssoUrl
                     },
                 };
 
@@ -67,11 +67,11 @@ namespace SEMS.SSOServer
             {
                 Authority = _ssoUrl.TrimEnd('/') + "/identity",
 
-                ClientId = "SEMS",
+                ClientId = "SEMS-SSO",
                 Scope = "openid profile",
                 ResponseType = "id_token token",
                 RedirectUri = _ssoUrl,
-
+                PostLogoutRedirectUri = _ssoUrl,
                 SignInAsAuthenticationType = OpenIdConnectAuthenticationDefaults.AuthenticationType,
                 UseTokenLifetime = false,
 

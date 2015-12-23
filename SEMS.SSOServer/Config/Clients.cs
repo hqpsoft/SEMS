@@ -7,16 +7,18 @@ namespace SEMS.SSOServer.Config.Config
 {
     public class Clients
     {
-        public static List<Client> Get()
+        public static List<ClientExtention> Get()
         {
-            return new List<Client>
+            return new List<ClientExtention>
             {
-                new Client
+                new ClientExtention
                 {
-                    ClientName = "SEMS",
-                    ClientId = "SEMS",
+                    ClientName = "SEMS-SSO",
+                    ClientId = "SEMS-SSO",
+                    Description = "SSO用户中心",
                     Flow = Flows.Implicit,
                     RequireConsent = false,
+                    ClientUri = "http://localhost:8896/",
                     RedirectUris = new List<string>
                                     {
                                         "http://localhost:8896/",
@@ -35,7 +37,44 @@ namespace SEMS.SSOServer.Config.Config
                                         "sampleApi"
                                     },
                 },
+                new ClientExtention
+                {
+                    ClientName = "SEMS",
+                    ClientId = "SEMS",
+                    Description = "SEMS团队项目",
+                    Flow = Flows.Implicit,
+                    RequireConsent = false,
+                    
+                    ClientUri = "http://localhost:60544/",
+                    RedirectUris = new List<string>
+                                    {
+                                        "http://localhost:60544/",
+                                    },
+
+                    PostLogoutRedirectUris = new List<string>
+                                            {
+                                                "http://localhost:60544/",
+                                            },
+
+                    AllowedScopes = new List<string>
+                                    {
+                                        "openid",
+                                        "profile",
+                                        "roles",
+                                        "sampleApi"
+                                    },
+                },
             };
         }
+    }
+    /// <summary>
+    /// Client的拓展类
+    /// </summary>
+    public class ClientExtention : Client
+    {
+        /// <summary>
+        /// 接入SSO网站描述
+        /// </summary>
+        public string Description { get; set; }
     }
 }

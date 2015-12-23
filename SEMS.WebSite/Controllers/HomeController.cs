@@ -19,6 +19,11 @@ namespace SEMS.WebSite.Controllers
             return View();
         }
 
+        public ActionResult LogOut()
+        {
+            Request.GetOwinContext().Authentication.SignOut();
+            return Redirect("/");
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

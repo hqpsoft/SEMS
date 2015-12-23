@@ -11,7 +11,7 @@ namespace SEMS.SSOServer.Config.Config
         {
             return new List<InMemoryUser>
             {
-                new InMemoryUser{Subject = "alice", Username = "alice", Password = "alice", 
+                new InMemoryUser{Subject = "alice", Username = "alice", Password = "alice",
                     Claims = new Claim[]
                     {
                         new Claim(Constants.ClaimTypes.GivenName, "Alice"),
@@ -19,7 +19,7 @@ namespace SEMS.SSOServer.Config.Config
                         new Claim(Constants.ClaimTypes.Email, "AliceSmith@email.com"),
                     }
                 },
-                new InMemoryUser{Subject = "bob", Username = "bob", Password = "bob", 
+                new InMemoryUser{Subject = "bob", Username = "bob", Password = "bob",
                     Claims = new Claim[]
                     {
                         new Claim(Constants.ClaimTypes.GivenName, "Bob"),

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SEMS.SSOServer.Config.Config;
+using SEMS.SSOServer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +12,15 @@ namespace SEMS.SSOServer.Controllers
     {
         public ActionResult Index()
         {
+            var name = User.Identity.Name;
+            var appList = Clients.Get().Where(x => x.Enabled)
+                                 .Select(r => new AppVM
+                                 {
+                                     Name = r.ClientName,
+                                     Url = r.ClientUri,
+                                     Description = r.Description
+                                 }).ToList();
+            ViewBag.AppList = appList;
             return View();
         }
 
@@ -25,6 +36,12 @@ namespace SEMS.SSOServer.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            Request.GetOwinContext().Authentication.SignOut();
+            return Redirect("/");
         }
     }
 }
