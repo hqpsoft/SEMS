@@ -1,4 +1,5 @@
 ﻿using SEMS.DataAccess.FluentAPI;
+using SEMS.DataAccess.Model.Organization;
 using SEMS.DataAccess.Organization.Model;
 using System;
 using System.Collections.Generic;
@@ -13,12 +14,14 @@ namespace SEMS.DataAccess.Model
     {
         #region DbSet 
         public DbSet<Company> Companies { get; set; }
+        public DbSet<DepartmentModel> Departments { get; set; }
         #endregion
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new ComapnyMap());
+            modelBuilder.Configurations.Add(new DepartmentMap());
         }
         
     }

@@ -18,12 +18,6 @@ namespace SEMS.DataAccess.Organization.Model
         /// 父级Id
         ///</summary>
         public int? ParentId { get; set; }
-
-        /// <summary>
-        /// 备注
-        /// </summary>
-        public string Remark { get; set; }
-
       
     }
 }

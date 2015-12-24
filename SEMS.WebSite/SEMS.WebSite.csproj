@@ -205,8 +205,10 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="ControllersAPI\BaseAPIController.cs" />
     <Compile Include="ControllersAPI\CompanyAPIController.cs" />
+    <Compile Include="ControllersAPI\DepartmentAPIController.cs" />
     <Compile Include="ControllersAPI\LoginAPIController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Filters\Logging\Log4NetLog.cs" />
     <Compile Include="Filters\Logging\Log4NetLoggerAdapter.cs" />
     <Compile Include="Filters\ModelStateEnsureValidFilterAttribute.cs" />
@@ -224,6 +226,7 @@
   <ItemGroup>
     <Content Include="app\service\company.js" />
     <Content Include="app\global.js" />
+    <Content Include="app\service\department.js" />
     <Content Include="app\service\login.js" />
     <Content Include="Content\bootstrap-table-zh-CN.min.js" />
     <Content Include="Content\bootstrap-table.min.css" />
@@ -1726,6 +1729,8 @@
     <Content Include="Views\Company\Index.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Department\Form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

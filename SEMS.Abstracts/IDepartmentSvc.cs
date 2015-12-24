@@ -1,4 +1,7 @@
-﻿using System;
+﻿using SEMS.DataAccess.Dto.Base;
+using SEMS.DataAccess.Query;
+using SEMS.Infrastructure.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +17,8 @@ namespace SEMS.Abstracts
         /// <summary>
         /// 新增部门
         /// </summary>
-        void CreatDepartment();
+        void CreatDepartment(DepartmentDto dto);
+
+        PageGridData<DepartmentDto> GetDepartmentPage(DepartmentQuery query);
     }
 }

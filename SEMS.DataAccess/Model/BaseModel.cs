@@ -21,5 +21,10 @@ namespace SEMS.DataAccess.Model
         public int? ModifyBy { get; set; }
 
         public DateTime? ModifyDate { get; set; }
+
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string Remark { get; set; }
     }
 }
