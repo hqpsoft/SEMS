@@ -1,4 +1,4 @@
-﻿using EmitMapper;
+﻿using AutoMapper;
 using Mehdime.Entity;
 using SEMS.Abstracts;
 using SEMS.DataAccess.Dto.Base;
@@ -27,7 +27,7 @@ namespace SEMS.Concretes
         {
             try
             {
-                var entity = ObjectMapperManager.DefaultInstance.GetMapper<DepartmentDto, DepartmentModel>().Map(dto);
+                var entity = Mapper.Map<DepartmentDto, Department>(dto);
                 entity.CreateBy = 0;
                 entity.CreateDate = DateTime.Now;
                 using (var dbScope = _dbScopeFactory.Create())

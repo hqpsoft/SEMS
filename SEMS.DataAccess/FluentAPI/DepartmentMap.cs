@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SEMS.DataAccess.FluentAPI
 {
-    public class DepartmentMap : EntityTypeConfiguration<DepartmentModel>
+    public class DepartmentMap : EntityTypeConfiguration<Department>
     {
         public DepartmentMap()
         {

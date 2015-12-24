@@ -14,7 +14,7 @@ namespace SEMS.DataAccess.Model
     {
         #region DbSet 
         public DbSet<Company> Companies { get; set; }
-        public DbSet<DepartmentModel> Departments { get; set; }
+        public DbSet<Department> Departments { get; set; }
         #endregion
 
 

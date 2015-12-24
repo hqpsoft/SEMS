@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SEMS.DataAccess.Dto
+namespace SEMS.DataAccess.Dto.Base
 {
     /// <summary>
     /// 公司管理Dto

@@ -1,4 +1,5 @@
-﻿using SEMS.Infrastructure.Logging;
+﻿using SEMS.DataAccess.AutoMapper;
+using SEMS.Infrastructure.Logging;
 using SEMS.WebSite.App_Start;
 using SEMS.WebSite.Filters.Logging;
 using System;
@@ -21,7 +22,7 @@ namespace SEMS.WebSite
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
+            AutoMapper.MapperRegister();
             LoggingInitialize();
         }
         private static void LoggingInitialize()

@@ -10,9 +10,10 @@ using System.Threading.Tasks;
 using SEMS.DataAccess.Dto;
 using SEMS.DataAccess.Query;
 using SEMS.Infrastructure.Data;
-using EmitMapper;
 using SEMS.DataAccess.Organization.Model;
 using SEMS.DataAccess.Extensions;
+using AutoMapper;
+using SEMS.DataAccess.Dto.Base;
 
 namespace SEMS.Concretes
 {
@@ -32,7 +33,7 @@ namespace SEMS.Concretes
         {
             try
             {
-                var entity = ObjectMapperManager.DefaultInstance.GetMapper<CompanyDto, Company>().Map(dto);
+                var entity = Mapper.Map<CompanyDto, Company>(dto);
                 entity.CreateBy = 0;
                 entity.CreateDate = DateTime.Now;
                 using (var dbScope = _dbScopeFactory.Create())
@@ -71,7 +72,7 @@ namespace SEMS.Concretes
         {
             try
             {
-                var entity = ObjectMapperManager.DefaultInstance.GetMapper<CompanyDto, Company>().Map(dto);
+                var entity = Mapper.Map<CompanyDto, Company>(dto);
                 entity.ModifyBy = 0;
                 entity.ModifyDate = DateTime.Now;
                 using (var dbScope = _dbScopeFactory.Create())

@@ -1,5 +1,6 @@
 ﻿using SEMS.Abstracts;
 using SEMS.DataAccess.Dto;
+using SEMS.DataAccess.Dto.Base;
 using SEMS.DataAccess.Query;
 using SEMS.Infrastructure.Logging;
 using System;

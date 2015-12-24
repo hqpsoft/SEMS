@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EmitMapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EmitMapper.1.0.0\lib\EmitMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -57,11 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoMapper\AutoMapper.cs" />
     <Compile Include="Dto\BaseDto.cs" />
     <Compile Include="Dto\Base\DepartmentDto.cs" />
-    <Compile Include="Dto\CompanyDto.cs" />
+    <Compile Include="Dto\Base\CompanyDto.cs" />
     <Compile Include="Dto\LoginDto.cs" />
-    <Compile Include="EmitMapper\EmitMapper.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="FluentAPI\ComapnyMap.cs" />
     <Compile Include="FluentAPI\DepartmentMap.cs" />
@@ -69,14 +69,10 @@
     <Compile Include="Migrations\201512091426121_firstmigration.Designer.cs">
       <DependentUpon>201512091426121_firstmigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201512240859213_Initial.cs" />
-    <Compile Include="Migrations\201512240859213_Initial.Designer.cs">
-      <DependentUpon>201512240859213_Initial.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\Organization\Company.cs" />
-    <Compile Include="Model\Organization\DepartmentModel.cs" />
+    <Compile Include="Model\Organization\Department.cs" />
     <Compile Include="Model\SEMSDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\BaseQuery.cs" />
@@ -93,9 +89,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201512091426121_firstmigration.resx">
       <DependentUpon>201512091426121_firstmigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512240859213_Initial.resx">
-      <DependentUpon>201512240859213_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
