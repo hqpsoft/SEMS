@@ -48,9 +48,9 @@ namespace SEMS.Concretes
             using (var dbScope = _dbScopeFactory.CreateReadOnly())
             {
                 var db = dbScope.DbContexts.Get<SEMSDbContext>();
-                var data = db.Companies.Select(r => new DepartmentDto
+                var data = db.Departments.Select(r => new DepartmentDto
                 {
-                    Name = r.CompanyName,
+                    Name = r.DepartmentName,
                     Remark = r.Remark,
                     Id = r.Id,
                 });
