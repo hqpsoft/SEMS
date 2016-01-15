@@ -3,7 +3,7 @@ namespace SEMS.DataAccess.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class firstmigration : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -14,11 +14,26 @@ namespace SEMS.DataAccess.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         CompanyName = c.String(nullable: false, maxLength: 50),
                         ParentId = c.Int(),
-                        Remark = c.String(),
                         CreateBy = c.Int(nullable: false),
                         CreateDate = c.DateTime(nullable: false),
                         ModifyBy = c.Int(),
                         ModifyDate = c.DateTime(),
+                        Remark = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Base_Department",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        DepartmentNo = c.String(),
+                        DepartmentName = c.String(),
+                        CreateBy = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
+                        ModifyBy = c.Int(),
+                        ModifyDate = c.DateTime(),
+                        Remark = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -26,6 +41,7 @@ namespace SEMS.DataAccess.Migrations
         
         public override void Down()
         {
+            DropTable("dbo.Base_Department");
             DropTable("dbo.Base_Company");
         }
     }

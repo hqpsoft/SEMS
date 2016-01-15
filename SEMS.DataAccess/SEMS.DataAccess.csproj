@@ -65,10 +65,6 @@
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="FluentAPI\ComapnyMap.cs" />
     <Compile Include="FluentAPI\DepartmentMap.cs" />
-    <Compile Include="Migrations\201512091426121_firstmigration.cs" />
-    <Compile Include="Migrations\201512091426121_firstmigration.Designer.cs">
-      <DependentUpon>201512091426121_firstmigration.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\Organization\Company.cs" />
@@ -85,11 +81,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201512091426121_firstmigration.resx">
-      <DependentUpon>201512091426121_firstmigration.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
