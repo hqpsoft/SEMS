@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00_Infrastructure", "00_Infrastructure", "{402F28F1-CF42-4204-AD3E-CE83F9573F5E}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03_Authorization", "03_Authorization", "{F0685C15-7645-4C2D-A290-9611C37CC39C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEMS.SSOServer", "SEMS.SSOServer\SEMS.SSOServer.csproj", "{C4C3B782-00BF-4DC6-9B1B-96AC3C310212}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEMS.WebApi", "SEMS.WebApi\SEMS.WebApi.csproj", "{182BB3EB-6FB4-452A-9725-03F56AE03EC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{C4C3B782-00BF-4DC6-9B1B-96AC3C310212}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4C3B782-00BF-4DC6-9B1B-96AC3C310212}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4C3B782-00BF-4DC6-9B1B-96AC3C310212}.Release|Any CPU.Build.0 = Release|Any CPU
+		{182BB3EB-6FB4-452A-9725-03F56AE03EC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{182BB3EB-6FB4-452A-9725-03F56AE03EC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{182BB3EB-6FB4-452A-9725-03F56AE03EC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{182BB3EB-6FB4-452A-9725-03F56AE03EC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,5 +70,6 @@ Global
 		{C337C77F-F4C7-4A40-AA56-4C5EE0FB9C28} = {166131BE-EA08-4279-9194-F758F616D30F}
 		{94B7B764-4E2B-4E4C-AA18-17E2A8A966E4} = {6A1DB04B-7C17-4F17-9389-FCD5E20D3381}
 		{C4C3B782-00BF-4DC6-9B1B-96AC3C310212} = {F0685C15-7645-4C2D-A290-9611C37CC39C}
+		{182BB3EB-6FB4-452A-9725-03F56AE03EC4} = {6A1DB04B-7C17-4F17-9389-FCD5E20D3381}
 	EndGlobalSection
 EndGlobal

@@ -3,12 +3,12 @@
 sems.service("DepartmentService", function ($http) {
     //列表分页
     this.getByPage = function (param) {
-        return $http.get("/api/DepartmentAPI/" + param + "");
+        return $http.get("/api/Department/" + param + "");
     };
 
     //新增
     this.post = function (company) {
-        return $http.post("/api/DepartmentAPI", company);
+        return $http.post("/api/Department", company);
     };
 });
 
@@ -19,7 +19,7 @@ sems.controller("DepartmentController", function ($scope, $http, DepartmentServi
     $scope.isShowForm = false;
     //分页配置
     $scope.tableOptions = {
-        url: '/api/DepartmentAPI',
+        url: '/api/Department',
         columns: [
             { field: 'Id', title: 'Id', align: 'center', width: 280 },
             { field: 'CompanyName', title: '部门名称', align: 'center' },

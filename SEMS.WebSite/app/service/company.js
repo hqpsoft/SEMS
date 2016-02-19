@@ -3,27 +3,27 @@
 sems.service("CompapyService", function ($http) {
     //列表分页
     this.getByPage = function (param) {
-        return $http.get("/api/CompanyAPI/" + param + "");
+        return $http.get("/api/Company/" + param + "");
     };
 
     //根据Id获取表单信息
     this.getById = function (id) {
-        return $http.get("/api/CompanyAPI/" + id + "/ById");
+        return $http.get("/api/Company/" + id + "/ById");
     };
 
     //新增
     this.post = function (company) {
-        return $http.post("/api/CompanyAPI", company);
+        return $http.post("/api/Company", company);
     };
 
     //修改
     this.put = function (id, company) {
-        return $http.put("/api/CompanyAPI/" + id + "", company);
+        return $http.put("/api/Company/" + id + "", company);
     };
 
     //删除
     this.delete = function (id) {
-        return $http.delete("/api/CompanyAPI/" + id + "");
+        return $http.delete("/api/Company/" + id + "");
     };
 });
 
@@ -34,7 +34,7 @@ sems.controller("CompanyController", function ($scope, $http, CompapyService) {
     $scope.isShowForm = false;
     //分页配置
     $scope.tableOptions = {
-        url: '/api/CompanyAPI',
+        url: '/api/Company',
         columns: [
             { field: 'Id', title: 'Id', align: 'center', width: 280 },
             { field: 'CompanyName', title: '公司名称', align: 'center' },

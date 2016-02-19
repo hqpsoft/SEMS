@@ -60,10 +60,6 @@
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Mehdime.Entity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Mehdime.Entity.1.0.0\lib\Mehdime.Entity.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -105,28 +101,12 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=3.0.5.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.3.0.5\lib\net45\SimpleInjector.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=3.0.5.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.Extensions.ExecutionContextScoping.3.0.5\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="SimpleInjector.Integration.WebApi, Version=3.0.5.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.Integration.WebApi.3.0.5\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.4.0.0\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
@@ -136,14 +116,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -201,20 +173,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\SimpleInjectorWebApiInitializer.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="ControllersAPI\BaseAPIController.cs" />
-    <Compile Include="ControllersAPI\CompanyAPIController.cs" />
-    <Compile Include="ControllersAPI\DepartmentAPIController.cs" />
-    <Compile Include="ControllersAPI\LoginAPIController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
-    <Compile Include="Filters\Logging\Log4NetLog.cs" />
-    <Compile Include="Filters\Logging\Log4NetLoggerAdapter.cs" />
-    <Compile Include="Filters\ModelStateEnsureValidFilterAttribute.cs" />
-    <Compile Include="Filters\OverrideModelStateEnsureValidFilterAttribute.cs" />
-    <Compile Include="Filters\UnifyExceptionFilter.cs" />
-    <Compile Include="Filters\ValidateModelStateAttribute.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1733,6 +1693,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Filters\" />
     <Folder Include="Metronic\assets\admin\pages\media\bg\" />
     <Folder Include="Metronic\assets\admin\pages\media\blog\" />
     <Folder Include="Metronic\assets\admin\pages\media\email\" />

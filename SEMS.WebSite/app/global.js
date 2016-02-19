@@ -2,8 +2,22 @@
   定义全局module
 */
 var sems;
+var apiUrl = "http://localhost:43299";
 (function () {
     sems = angular.module("SEMS", ['ngMessages']);
+
+    sems.config(["$httpProvider", function ($httpProvider) {
+        $httpProvider.interceptors.push("middleware");
+    }]);
+
+    sems.factory("middleware", function () {
+        return {
+            request: function (config) {
+                config.url = apiUrl + config.url;
+                return config;
+            }
+        };
+    });
 })();
 
 //bootstrap-table的angular指令
@@ -25,7 +39,7 @@ sems.directive('initTable', ['$compile', function ($compile) {
 
 //表单提交成功事件通用操作
 var formSubmitSuccessClick = function () {
-    bootbox.alert("提交成功", function (data) {
+    bootbox.alert("操作成功", function (data) {
         location.reload();//刷新分页
     });
 }

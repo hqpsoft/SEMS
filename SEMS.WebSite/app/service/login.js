@@ -2,7 +2,7 @@
 sems.service("LoginService", function ($http) {
     //登录校验
     this.post = function (login) {
-        return $http.post("/api/LoginAPI", login);
+        return $http.post("/api/Login", login);
     }
 });
 
