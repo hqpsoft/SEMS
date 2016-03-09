@@ -65,9 +65,9 @@
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="FluentAPI\ComapnyMap.cs" />
     <Compile Include="FluentAPI\DepartmentMap.cs" />
-    <Compile Include="Migrations\201512091426121_firstmigration.cs" />
-    <Compile Include="Migrations\201512091426121_firstmigration.Designer.cs">
-      <DependentUpon>201512091426121_firstmigration.cs</DependentUpon>
+    <Compile Include="Migrations\201601191315270_initdata.cs" />
+    <Compile Include="Migrations\201601191315270_initdata.Designer.cs">
+      <DependentUpon>201601191315270_initdata.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\BaseModel.cs" />
@@ -87,8 +87,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201512091426121_firstmigration.resx">
-      <DependentUpon>201512091426121_firstmigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201601191315270_initdata.resx">
+      <DependentUpon>201601191315270_initdata.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

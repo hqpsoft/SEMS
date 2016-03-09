@@ -34,7 +34,7 @@ sems.controller("CompanyController", function ($scope, $http, CompapyService) {
     $scope.isShowForm = false;
     //分页配置
     $scope.tableOptions = {
-        url: '/api/Company',
+        url: apiUrl+'/api/Company',
         columns: [
             { field: 'Id', title: 'Id', align: 'center', width: 280 },
             { field: 'CompanyName', title: '公司名称', align: 'center' },

@@ -7,13 +7,13 @@ namespace SEMS.DataAccess.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Initial : IMigrationMetadata
+    public sealed partial class initdata : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initdata));
         
         string IMigrationMetadata.Id
         {
-            get { return "201512240859213_Initial"; }
+            get { return "201601191315270_initdata"; }
         }
         
         string IMigrationMetadata.Source
