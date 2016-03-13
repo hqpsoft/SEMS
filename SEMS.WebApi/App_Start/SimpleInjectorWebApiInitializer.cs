@@ -7,8 +7,7 @@ namespace SEMS.WebApi.App_Start
     using SimpleInjector.Integration.WebApi;
     using System.Linq;
     using Mehdime.Entity;
-    using Concretes;
-
+    using Service.Impl;
     public static class SimpleInjectorWebApiInitializer
     {
         /// <summary>Initialize the container and register it as Web API Dependency Resolver.</summary>

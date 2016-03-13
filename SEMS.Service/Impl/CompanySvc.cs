@@ -1,5 +1,4 @@
 ﻿using Mehdime.Entity;
-using SEMS.Abstracts;
 using SEMS.DataAccess.Model;
 using SEMS.Infrastructure.Exception;
 using System;
@@ -15,7 +14,7 @@ using SEMS.DataAccess.Extensions;
 using AutoMapper;
 using SEMS.DataAccess.Dto.Base;
 
-namespace SEMS.Concretes
+namespace SEMS.Service.Impl
 {
     public class CompanySvc : ICompanySvc
     {
@@ -31,60 +30,39 @@ namespace SEMS.Concretes
 
         public void CreatCompany(CompanyDto dto)
         {
-            try
+            var entity = Mapper.Map<CompanyDto, Company>(dto);
+            entity.CreateBy = 0;
+            entity.CreateDate = DateTime.Now;
+            using (var dbScope = _dbScopeFactory.Create())
             {
-                var entity = Mapper.Map<CompanyDto, Company>(dto);
-                entity.CreateBy = 0;
-                entity.CreateDate = DateTime.Now;
-                using (var dbScope = _dbScopeFactory.Create())
-                {
-                    var db = dbScope.DbContexts.Get<SEMSDbContext>();
-                    var data = db.Companies.Add(entity);
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new TipInfoException(ex.Message);
+                var db = dbScope.DbContexts.Get<SEMSDbContext>();
+                var data = db.Companies.Add(entity);
+                db.SaveChanges();
             }
         }
 
         public void DeleteCompany(int companyId)
         {
-            try
+            using (var dbScope = _dbScopeFactory.Create())
             {
-                using (var dbScope = _dbScopeFactory.Create())
-                {
-                    var db = dbScope.DbContexts.Get<SEMSDbContext>();
-                    Company entity = new Company() { Id = companyId };
-                    db.Companies.Attach(entity);
-                    db.Companies.Remove(entity);
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new TipInfoException(ex.Message);
+                var db = dbScope.DbContexts.Get<SEMSDbContext>();
+                Company entity = new Company() { Id = companyId };
+                db.Companies.Attach(entity);
+                db.Companies.Remove(entity);
+                db.SaveChanges();
             }
         }
 
         public void EditCompany(CompanyDto dto)
         {
-            try
+            var entity = Mapper.Map<CompanyDto, Company>(dto);
+            entity.ModifyBy = 0;
+            entity.ModifyDate = DateTime.Now;
+            using (var dbScope = _dbScopeFactory.Create())
             {
-                var entity = Mapper.Map<CompanyDto, Company>(dto);
-                entity.ModifyBy = 0;
-                entity.ModifyDate = DateTime.Now;
-                using (var dbScope = _dbScopeFactory.Create())
-                {
-                    var db = dbScope.DbContexts.Get<SEMSDbContext>();
-                    db.Update(entity, r => new { r.CompanyName, r.ModifyBy, r.ModifyDate, r.Remark, r.ParentId });
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new TipInfoException(ex.Message);
+                var db = dbScope.DbContexts.Get<SEMSDbContext>();
+                db.Update(entity, r => new { r.CompanyName, r.ModifyBy, r.ModifyDate, r.Remark, r.ParentId });
+                db.SaveChanges();
             }
         }
 

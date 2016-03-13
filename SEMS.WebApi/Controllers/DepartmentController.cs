@@ -1,6 +1,6 @@
-﻿using SEMS.Abstracts;
-using SEMS.DataAccess.Dto.Base;
+﻿using SEMS.DataAccess.Dto.Base;
 using SEMS.DataAccess.Query;
+using SEMS.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +26,7 @@ namespace SEMS.WebApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            this._departmentSvc.CreatDepartment(dto);
+            _departmentSvc.CreatDepartment(dto);
             return Ok();
         }
 

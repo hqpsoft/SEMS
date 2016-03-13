@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SEMS.DataAccess.Dto.Base;
 
-namespace SEMS.Abstracts
+namespace SEMS.Service
 {
     /// <summary>
     /// 公司管理业务接口

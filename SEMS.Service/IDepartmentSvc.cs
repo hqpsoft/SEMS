@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SEMS.Abstracts
+namespace SEMS.Service
 {
     /// <summary>
     /// 部门管理业务契约

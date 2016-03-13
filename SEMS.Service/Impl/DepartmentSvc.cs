@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Mehdime.Entity;
-using SEMS.Abstracts;
 using SEMS.DataAccess.Dto.Base;
 using SEMS.DataAccess.Model;
 using SEMS.DataAccess.Model.Organization;
@@ -12,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SEMS.Concretes
+namespace SEMS.Service.Impl
 {
     public class DepartmentSvc : IDepartmentSvc
     {
@@ -25,21 +24,14 @@ namespace SEMS.Concretes
 
         public void CreatDepartment(DepartmentDto dto)
         {
-            try
+            var entity = Mapper.Map<DepartmentDto, Department>(dto);
+            entity.CreateBy = 0;
+            entity.CreateDate = DateTime.Now;
+            using (var dbScope = _dbScopeFactory.Create())
             {
-                var entity = Mapper.Map<DepartmentDto, Department>(dto);
-                entity.CreateBy = 0;
-                entity.CreateDate = DateTime.Now;
-                using (var dbScope = _dbScopeFactory.Create())
-                {
-                    var db = dbScope.DbContexts.Get<SEMSDbContext>();
-                    var data = db.Departments.Add(entity);
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new TipInfoException(ex.Message);
+                var db = dbScope.DbContexts.Get<SEMSDbContext>();
+                var data = db.Departments.Add(entity);
+                db.SaveChanges();
             }
         }
 
