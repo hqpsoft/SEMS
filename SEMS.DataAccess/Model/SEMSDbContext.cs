@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace SEMS.DataAccess.Model
 {
+    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class SEMSDbContext: DbContext
     {
         #region DbSet 

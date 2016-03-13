@@ -177,6 +177,7 @@
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImgMgmtController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,7 +188,12 @@
     <Content Include="app\service\company.js" />
     <Content Include="app\global.js" />
     <Content Include="app\service\department.js" />
+    <Content Include="app\service\imgMgmt.js" />
     <Content Include="app\service\login.js" />
+    <Content Include="Content\angular-upload\ng-flow-standalone.js" />
+    <Content Include="Content\angular-upload\ng-flow-standalone.min.js" />
+    <Content Include="Content\angular-upload\ng-flow.js" />
+    <Content Include="Content\angular-upload\ng-flow.min.js" />
     <Content Include="Content\bootstrap-table-zh-CN.min.js" />
     <Content Include="Content\bootstrap-table.min.css" />
     <Content Include="Content\bootstrap-table.min.js" />
@@ -1690,6 +1696,7 @@
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\ImgMgmt\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

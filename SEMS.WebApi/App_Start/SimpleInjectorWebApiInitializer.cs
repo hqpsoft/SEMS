@@ -34,7 +34,7 @@ namespace SEMS.WebApi.App_Start
 
             var registrations =
                 from type in serviceAssembly.GetExportedTypes()
-                where type.Namespace == "SEMS.Concretes" && type.GetInterfaces().Any()
+                where type.Namespace == "SEMS.Service.Impl" && type.GetInterfaces().Any()
                 select new { Service = type.GetInterfaces().First(), Implementation = type };
 
             foreach (var reg in registrations)
