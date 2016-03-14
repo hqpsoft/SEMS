@@ -1,0 +1,27 @@
+﻿@using SEMS.SSOServer.Models
+@{
+    ViewBag.Title = "Home Page";
+    var appList = ViewBag.AppList as IEnumerable<AppVM> ?? new List<AppVM>();
+}
+
+<div class="row">
+   
+        <h2>你可以访问以下系统:</h2>
+        @foreach (var item in appList)
+        {
+           
+            <div class="jumbotron">
+                <h1>@item.Name</h1>
+                <p>@item.Description</p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="@item.Url" role="button">前往 »</a>
+                </p>
+            </div>
+        }
+       
+      
+        
+       
+   
+
+</div>
