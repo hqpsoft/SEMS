@@ -17,9 +17,7 @@ namespace SEMS.WebApi.Controllers
     [RoutePrefix("api/ImgMgmt")]
     public class ImgMgmtController : BaseController
     {
-        const string Folder = @"C:\Temp\PicUpload";
-
-       
+        string Folder = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "UpLoad";
         private readonly IFlowJsRepo _flowJs;
 
         public ImgMgmtController()
