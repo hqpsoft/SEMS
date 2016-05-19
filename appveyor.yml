@@ -1,0 +1,12 @@
+version: '{build}'
+configuration: Release
+branches:
+  only:
+    - master
+
+before_build:
+  - nuget restore SEMS.sln
+
+build:
+  project: SEMS.sln       
+  verbosity: minimal
