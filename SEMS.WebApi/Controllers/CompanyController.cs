@@ -29,7 +29,7 @@ namespace SEMS.WebApi.Controllers
 
         public IHttpActionResult Get(int id)
         {
-            return Ok();
+            return Ok();1
         }
 
         /// <summary>
