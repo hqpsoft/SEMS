@@ -14,3 +14,5 @@ DTO用于实体传输,EF采用[Mehdime.Entity](https://github.com/hqpsoft/DbCont
 * 日志记录：定义通用日志记录接口与基础API，日志输出方式可以使用现成的任意日志组件（如log4net）
 * 前端：基于BootStrap Metronic的MD规范的模板+AngularJS,调用WebApi
 * 授权：基于[IdentityServer3](https://github.com/IdentityServer/IdentityServer3.git)的SSO授权
+
+<a href="https://ci.appveyor.com/project/hqpsoft/sems"><image src="https://ci.appveyor.com/api/projects/status/s14mknaaaueyls3q?svg=true" width="300"></a>
